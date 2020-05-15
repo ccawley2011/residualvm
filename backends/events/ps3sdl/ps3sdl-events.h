@@ -23,14 +23,12 @@
 #if !defined(BACKEND_EVENTS_PS3_H) && !defined(DISABLE_DEFAULT_EVENTMANAGER)
 #define BACKEND_EVENTS_PS3_H
 
-// ResidualVM:
-// #include "backends/events/sdl/sdl-events.h"
-#include "backends/events/sdl/resvm-sdl-events.h"
+#include "backends/events/sdl/sdl-events.h"
 
 /**
  * SDL Events manager for the PS3.
  */
-class PS3SdlEventSource : public ResVmSdlEventSource { // ResidualVM: was SdlEventSource
+class PS3SdlEventSource : public ResVmSdlEventSource {
 protected:
 	void preprocessEvents(SDL_Event *event);
 };

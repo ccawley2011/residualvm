@@ -40,16 +40,11 @@
 #endif
 
 #include "backends/events/default/default-events.h"
-// ResidualVM:
-// #include "backends/events/sdl/sdl-events.h"
-// ResidualVM:
-// #include "backends/events/sdl/legacy-sdl-events.h"
-#include "backends/events/sdl/resvm-sdl-events.h"
+#include "backends/events/sdl/sdl-events.h"
 #include "backends/keymapper/hardware-input.h"
 #include "backends/mutex/sdl/sdl-mutex.h"
 #include "backends/timer/sdl/sdl-timer.h"
 #include "backends/graphics/surfacesdl/surfacesdl-graphics.h"
-
 #ifdef USE_OPENGL
 #include "backends/graphics/openglsdl/openglsdl-graphics.h"
 //#include "graphics/cursorman.h" // ResidualVM
@@ -217,7 +212,7 @@ void OSystem_SDL::initBackend() {
 	// Create the default event source, in case a custom backend
 	// manager didn't provide one yet.
 	if (!_eventSource)
-		_eventSource = new ResVmSdlEventSource(); // ResidualVm: was SdlEventSource
+		_eventSource = new SdlEventSource();
 
 #if !SDL_VERSION_ATLEAST(2, 0, 0)
 	// SDL 1 does not generate its own keyboard repeat events.

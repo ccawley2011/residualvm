@@ -23,7 +23,6 @@
 #include "backends/graphics/sdl/resvm-sdl-graphics.h"
 
 #include "backends/platform/sdl/sdl-sys.h"
-#include "backends/events/sdl/resvm-sdl-events.h"
 #include "backends/platform/sdl/sdl.h"
 
 #include "common/config-manager.h"

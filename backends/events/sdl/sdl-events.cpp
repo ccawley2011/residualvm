@@ -181,6 +181,9 @@ bool SdlEventSource::processMouseEvent(Common::Event &event, int x, int y, int r
 
 	event.mouse.x = x;
 	event.mouse.y = y;
+	// ResidualVM specific
+	event.relMouse.x = relx;
+	event.relMouse.y = rely;
 
 	if (_graphicsManager) {
 		return _graphicsManager->notifyMousePosition(event.mouse);

@@ -23,7 +23,7 @@
 #include "backends/graphics/sdl/sdl-graphics.h"
 #include "backends/platform/sdl/sdl-sys.h"
 #include "backends/platform/sdl/sdl.h"
-#include "backends/events/sdl/resvm-sdl-events.h"
+#include "backends/events/sdl/sdl-events.h"
 #include "backends/keymapper/action.h"
 #include "backends/keymapper/keymap.h"
 #include "common/config-manager.h"

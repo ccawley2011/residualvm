@@ -25,7 +25,6 @@
 #if defined(SDL_BACKEND)
 
 #include "backends/graphics/surfacesdl/surfacesdl-graphics.h"
-#include "backends/events/sdl/resvm-sdl-events.h"
 #include "common/config-manager.h"
 #include "common/file.h"
 #include "engines/engine.h"
@@ -188,8 +187,6 @@ void SurfaceSdlGraphicsManager::createOrUpdateScreen() {
 	_screenFormat = _overlayFormat;
 
 	_screenChangeCount++;
-
-	dynamic_cast<ResVmSdlEventSource *>(_eventSource)->resetKeyboardEmulation(_gameRect.getWidth() - 1, _gameRect.getHeight() - 1);
 }
 
 Graphics::PixelBuffer SurfaceSdlGraphicsManager::getScreenPixelBuffer() {
@@ -296,8 +293,6 @@ void SurfaceSdlGraphicsManager::showOverlay() {
 	_overlayVisible = true;
 
 	clearOverlay();
-
-	dynamic_cast<ResVmSdlEventSource *>(_eventSource)->resetKeyboardEmulation(getOverlayWidth() - 1, getOverlayHeight() - 1);
 }
 
 void SurfaceSdlGraphicsManager::hideOverlay() {
@@ -307,8 +302,6 @@ void SurfaceSdlGraphicsManager::hideOverlay() {
 	_overlayVisible = false;
 
 	clearOverlay();
-
-	dynamic_cast<ResVmSdlEventSource *>(_eventSource)->resetKeyboardEmulation(_gameRect.getWidth() - 1, _gameRect.getHeight() - 1);
 }
 
 void SurfaceSdlGraphicsManager::grabOverlay(void *buf, int pitch) const {

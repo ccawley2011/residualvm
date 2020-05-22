@@ -57,7 +57,8 @@
 #include <os2.h>
 #endif
 
-#if defined(__ANDROID__) && !defined(ANDROIDSDL)
+// ResiduaVM: Disabled for now
+#if defined(__ANDROID__) && !defined(ANDROIDSDL) && 0
 #include "backends/platform/android/jni-android.h"
 #endif
 
@@ -193,7 +194,8 @@ bool POSIXFilesystemNode::getChildren(AbstractFSList &myList, ListMode mode, boo
 	}
 #endif
 
-#if defined(__ANDROID__) && !defined(ANDROIDSDL)
+// ResiduaVM: Disabled for now
+#if defined(__ANDROID__) && !defined(ANDROIDSDL) && 0
 	if (_path == "/") {
 		Common::Array<Common::String> list = JNI::getAllStorageLocations();
 		for (Common::Array<Common::String>::const_iterator it = list.begin(), end = list.end(); it != end; ++it) {

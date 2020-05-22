@@ -600,7 +600,7 @@ void OSystem_Android::unlockScreen() {
 	assert(_game_texture->dirty());
 }
 
-void OSystem_Android::setShakePos(int shake_offset) {
+void OSystem_Android::setShakePos(int shakeXOffset, int shakeYOffset) {
 	/* not used in any engine */
 }
 

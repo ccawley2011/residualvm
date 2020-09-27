@@ -1829,11 +1829,7 @@ void GlobalOptionsDialog::build() {
 	//
 	Common::KeymapArray keymaps;
 
-	Common::Keymap *primaryGlobalKeymap = g_system->getEventManager()->getGlobalKeymap();
-	if (primaryGlobalKeymap && !primaryGlobalKeymap->getActions().empty()) {
-		keymaps.push_back(primaryGlobalKeymap);
-	}
-
+	keymaps.push_back(g_system->getEventManager()->getGlobalKeymaps());
 	keymaps.push_back(g_system->getGlobalKeymaps());
 
 	Common::Keymap *guiKeymap = g_gui.getKeymap();

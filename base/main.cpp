@@ -367,9 +367,9 @@ static void setupKeymapper(OSystem &system) {
 
 	mapper->registerHardwareInputSet(inputSet, backendDefaultBindings);
 
-	Keymap *primaryGlobalKeymap = system.getEventManager()->getGlobalKeymap();
-	if (primaryGlobalKeymap) {
-		mapper->addGlobalKeymap(primaryGlobalKeymap);
+	KeymapArray globalKeymaps = system.getEventManager()->getGlobalKeymaps();
+	for (uint i = 0; i < globalKeymaps.size(); i++) {
+		mapper->addGlobalKeymap(globalKeymaps[i]);
 	}
 
 	// Get the platform-specific global keymap (if it exists)

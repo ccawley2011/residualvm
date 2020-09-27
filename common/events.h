@@ -23,6 +23,7 @@
 #ifndef COMMON_EVENTS_H
 #define COMMON_EVENTS_H
 
+#include "common/array.h" // For EventManager::getGlobalKeymaps()
 #include "common/keyboard.h"
 #include "common/queue.h"
 #include "common/rect.h"
@@ -32,6 +33,10 @@
 #include "common/singleton.h"
 
 namespace Common {
+
+class Keymap;
+
+typedef Array<Keymap *> KeymapArray;
 
 /**
  * The types of events backends may generate.
@@ -523,7 +528,7 @@ public:
 	// replacing it by a generic getScreenChangeID method here
 
 	virtual Keymapper *getKeymapper() = 0;
-	virtual Keymap *getGlobalKeymap() = 0;
+	virtual KeymapArray getGlobalKeymaps() = 0;
 
 	enum {
 		/**

@@ -286,7 +286,7 @@ void DefaultEventManager::purgeMouseEvents() {
 	_eventQueue = filteredQueue;
 }
 
-Common::Keymap *DefaultEventManager::getGlobalKeymap() {
+Common::KeymapArray DefaultEventManager::getGlobalKeymaps() {
 	using namespace Common;
 
 	// Now create the global keymap
@@ -340,9 +340,14 @@ Common::Keymap *DefaultEventManager::getGlobalKeymap() {
 	act->setEvent(EVENT_DEBUGGER);
 	globalKeymap->addAction(act);
 
-	_virtualMouse->addActionsToKeymap(globalKeymap);
+	Keymap *mouseKeymap = new Keymap(Keymap::kKeymapTypeGlobal, kVirtualMouseKeymapName, _("Virtual Mouse"));
+	_virtualMouse->addActionsToKeymap(mouseKeymap);
 
-	return globalKeymap;
+	KeymapArray keymaps(2);
+	keymaps[0] = globalKeymap;
+	keymaps[1] = mouseKeymap;
+
+	return keymaps;
 }
 
 #endif // !defined(DISABLE_DEFAULT_EVENTMANAGER)

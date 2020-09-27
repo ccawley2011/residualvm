@@ -79,7 +79,7 @@ public:
 #endif
 
 	Common::Keymapper *getKeymapper() override { return _keymapper; }
-	Common::Keymap *getGlobalKeymap() override;
+	Common::KeymapArray getGlobalKeymaps() override;
 };
 
 #endif

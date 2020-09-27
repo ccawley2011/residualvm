@@ -35,6 +35,7 @@ namespace Common {
 
 const char *const kGuiKeymapName = "gui";
 const char *const kGlobalKeymapName = "global";
+const char *const kVirtualMouseKeymapName = "virtual-mouse";
 
 struct Action;
 class DelayedEventSource;

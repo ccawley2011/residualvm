@@ -118,7 +118,6 @@ endif
 ifdef SDL_BACKEND
 MODULE_OBJS += \
 	events/sdl/sdl-events.o \
-	events/sdl/resvm-sdl-events.o \
 	graphics3d/sdl/sdl-graphics3d.o \
 	graphics3d/surfacesdl/surfacesdl-graphics3d.o \
 	mixer/sdl/sdl-mixer.o \

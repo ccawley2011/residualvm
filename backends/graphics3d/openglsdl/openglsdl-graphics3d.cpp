@@ -26,7 +26,6 @@
 
 #include "backends/graphics3d/openglsdl/openglsdl-graphics3d.h"
 
-#include "backends/events/sdl/resvm-sdl-events.h"
 #include "common/config-manager.h"
 #include "common/file.h"
 #include "engines/engine.h"
@@ -249,8 +248,6 @@ void OpenGLSdlGraphics3dManager::createOrUpdateScreen() {
 
 	_screenChangeCount++;
 
-	dynamic_cast<ResVmSdlEventSource *>(_eventSource)->resetKeyboardEmulation(obtainedWidth - 1, obtainedHeight - 1);
-
 #if !defined(AMIGAOS)
 	if (renderToFrameBuffer) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -307,7 +304,6 @@ void OpenGLSdlGraphics3dManager::notifyResize(const int width, const int height)
 
 	_screenChangeCount++;
 
-	dynamic_cast<ResVmSdlEventSource *>(_eventSource)->resetKeyboardEmulation(newWidth - 1, newHeight- 1);
 #endif
 }
 
